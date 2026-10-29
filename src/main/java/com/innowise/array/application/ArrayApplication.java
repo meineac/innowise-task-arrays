@@ -3,7 +3,7 @@ package com.innowise.array.application;
 import com.innowise.array.entity.IntArray;
 import com.innowise.array.exception.InvalidArrayException;
 import com.innowise.array.factory.ArrayFactory;
-import com.innowise.array.parser.IntArrayParser;
+import com.innowise.array.parser.impl.ArrayLineParserImpl;
 import com.innowise.array.reader.ArrayFileReader;
 import com.innowise.array.service.AverageService;
 import com.innowise.array.service.ExtremumService;
@@ -21,7 +21,7 @@ public final class ArrayApplication {
 
     private final ArrayFileReader fileReader;
     private final ArrayValidator validator;
-    private final IntArrayParser parser;
+    private final ArrayLineParserImpl parser;
     private final ArrayFactory factory;
     private final ExtremumService extremumService;
     private final SumService sumService;
@@ -31,7 +31,7 @@ public final class ArrayApplication {
     public ArrayApplication(
             ArrayFileReader fileReader,
             ArrayValidator validator,
-            IntArrayParser parser,
+            ArrayLineParserImpl parser,
             ArrayFactory factory,
             ExtremumService extremumService,
             SumService sumService,

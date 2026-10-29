@@ -1,11 +1,11 @@
 package com.innowise.array.validation;
 
-import com.innowise.array.parser.IntArrayParser;
+import com.innowise.array.parser.impl.ArrayLineParserImpl;
 
 public final class IntArrayValidator implements ArrayValidator {
-    private final IntArrayParser parser;
+    private final ArrayLineParserImpl parser;
 
-    public IntArrayValidator(IntArrayParser parser) {
+    public IntArrayValidator(ArrayLineParserImpl parser) {
         this.parser = parser;
     }
 

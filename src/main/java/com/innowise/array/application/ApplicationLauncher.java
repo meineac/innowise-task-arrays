@@ -1,7 +1,7 @@
 package com.innowise.array.application;
 
 import com.innowise.array.factory.IntArrayFactory;
-import com.innowise.array.parser.IntArrayParser;
+import com.innowise.array.parser.impl.ArrayLineParserImpl;
 import com.innowise.array.reader.impl.ArrayFileReaderImpl;
 import com.innowise.array.service.impl.ArrayAverageService;
 import com.innowise.array.service.impl.ArrayExtremumService;
@@ -17,7 +17,7 @@ public final class ApplicationLauncher {
     private static final Logger LOGGER = LogManager.getLogger(ApplicationLauncher.class);
 
     public void launch() {
-        IntArrayParser parser = new IntArrayParser();
+        ArrayLineParserImpl parser = new ArrayLineParserImpl();
         ArrayApplication application = new ArrayApplication(
                 new ArrayFileReaderImpl(),
                 new IntArrayValidator(parser),

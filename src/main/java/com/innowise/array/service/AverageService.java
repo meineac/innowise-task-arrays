@@ -1,8 +1,8 @@
 package com.innowise.array.service;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import java.util.OptionalDouble;
 
 public interface AverageService {
-    OptionalDouble calculateAverage(IntArrayEntity array);
+    OptionalDouble calculateAverage(IntArray array);
 }

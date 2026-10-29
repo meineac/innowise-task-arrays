@@ -1,12 +1,12 @@
 package com.innowise.array.service.impl;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.service.ExtremumService;
 import java.util.OptionalInt;
 
 public final class ArrayExtremumService implements ExtremumService {
     @Override
-    public OptionalInt findMin(IntArrayEntity array) {
+    public OptionalInt findMin(IntArray array) {
         if (array == null || array.size() == 0) {
             return OptionalInt.empty();
         }
@@ -20,7 +20,7 @@ public final class ArrayExtremumService implements ExtremumService {
     }
 
     @Override
-    public OptionalInt findMax(IntArrayEntity array) {
+    public OptionalInt findMax(IntArray array) {
         if (array == null || array.size() == 0) {
             return OptionalInt.empty();
         }

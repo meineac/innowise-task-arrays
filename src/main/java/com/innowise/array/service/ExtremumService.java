@@ -1,10 +1,10 @@
 package com.innowise.array.service;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import java.util.OptionalInt;
 
 public interface ExtremumService {
-    OptionalInt findMin(IntArrayEntity array);
+    OptionalInt findMin(IntArray array);
 
-    OptionalInt findMax(IntArrayEntity array);
+    OptionalInt findMax(IntArray array);
 }

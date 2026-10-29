@@ -1,9 +1,9 @@
 package com.innowise.array.service;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 
 public interface SortingService {
-    int[] sortByInsertion(IntArrayEntity array);
+    int[] sortByInsertion(IntArray array);
 
-    int[] sortByQuickSort(IntArrayEntity array);
+    int[] sortByQuickSort(IntArray array);
 }

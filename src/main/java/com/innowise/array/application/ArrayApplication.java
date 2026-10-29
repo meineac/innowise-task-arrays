@@ -1,6 +1,6 @@
 package com.innowise.array.application;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.exception.InvalidArrayException;
 import com.innowise.array.factory.ArrayFactory;
 import com.innowise.array.parser.IntArrayParser;
@@ -55,7 +55,7 @@ public final class ArrayApplication {
             }
             try {
                 int[] values = parser.parse(line);
-                IntArrayEntity array = factory.create(values);
+                IntArray array = factory.create(values);
                 LOGGER.info("Input array: {}", Arrays.toString(array.toArray()));
                 LOGGER.info("Minimum: {}", extremumService.findMin(array));
                 LOGGER.info("Maximum: {}", extremumService.findMax(array));

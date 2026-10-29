@@ -1,7 +1,7 @@
 package com.innowise.array;
 
 import com.innowise.array.builder.IntArrayBuilder;
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.exception.InvalidArrayException;
 import com.innowise.array.parser.IntArrayParser;
 import com.innowise.array.service.impl.ArrayAverageService;
@@ -58,7 +58,7 @@ class ArrayServicesTest {
 
     @Test
     void shouldFindMinimumAndMaximum() throws InvalidArrayException {
-        IntArrayEntity array = new IntArrayBuilder()
+        IntArray array = new IntArrayBuilder()
                 .addAll(new int[] {8, -4, 12, 2})
                 .build();
 
@@ -68,7 +68,7 @@ class ArrayServicesTest {
 
     @Test
     void shouldCalculateSumAndAverage() throws InvalidArrayException {
-        IntArrayEntity array = new IntArrayBuilder()
+        IntArray array = new IntArrayBuilder()
                 .addAll(new int[] {2, 4, 6})
                 .build();
 
@@ -78,7 +78,7 @@ class ArrayServicesTest {
 
     @Test
     void shouldSortUsingBothAlgorithms() throws InvalidArrayException {
-        IntArrayEntity array = new IntArrayBuilder()
+        IntArray array = new IntArrayBuilder()
                 .addAll(new int[] {5, -1, 8, 2, 2})
                 .build();
 
@@ -95,7 +95,7 @@ class ArrayServicesTest {
 
     @Test
     void shouldDetectIntegerOverflowDuringSum() throws InvalidArrayException {
-        IntArrayEntity array = new IntArrayBuilder()
+        IntArray array = new IntArrayBuilder()
                 .addAll(new int[] {Integer.MAX_VALUE, 1})
                 .build();
 

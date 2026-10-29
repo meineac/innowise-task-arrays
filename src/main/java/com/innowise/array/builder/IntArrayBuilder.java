@@ -1,6 +1,6 @@
 package com.innowise.array.builder;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.exception.InvalidArrayException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public final class IntArrayBuilder {
         return this;
     }
 
-    public IntArrayEntity build() throws InvalidArrayException {
+    public IntArray build() throws InvalidArrayException {
         if (values.isEmpty()) {
             throw new InvalidArrayException("An array must contain at least one element");
         }
@@ -32,6 +32,6 @@ public final class IntArrayBuilder {
         for (int index = 0; index < values.size(); index++) {
             result[index] = values.get(index);
         }
-        return new IntArrayEntity(result);
+        return new IntArray(result);
     }
 }

@@ -1,12 +1,12 @@
 package com.innowise.array.service.impl;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.service.SumService;
 import java.util.OptionalInt;
 
 public final class ArraySumService implements SumService {
     @Override
-    public OptionalInt calculateSum(IntArrayEntity array) {
+    public OptionalInt calculateSum(IntArray array) {
         if (array == null || array.size() == 0) {
             return OptionalInt.empty();
         }

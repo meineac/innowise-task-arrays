@@ -1,12 +1,12 @@
 package com.innowise.array.service.impl;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.service.AverageService;
 import java.util.OptionalDouble;
 
 public final class ArrayAverageService implements AverageService {
     @Override
-    public OptionalDouble calculateAverage(IntArrayEntity array) {
+    public OptionalDouble calculateAverage(IntArray array) {
         if (array == null || array.size() == 0) {
             return OptionalDouble.empty();
         }

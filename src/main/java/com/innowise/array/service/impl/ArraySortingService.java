@@ -1,11 +1,11 @@
 package com.innowise.array.service.impl;
 
-import com.innowise.array.entity.IntArrayEntity;
+import com.innowise.array.entity.IntArray;
 import com.innowise.array.service.SortingService;
 
 public final class ArraySortingService implements SortingService {
     @Override
-    public int[] sortByInsertion(IntArrayEntity array) {
+    public int[] sortByInsertion(IntArray array) {
         int[] result = array.toArray();
         for (int index = 1; index < result.length; index++) {
             int current = result[index];
@@ -20,7 +20,7 @@ public final class ArraySortingService implements SortingService {
     }
 
     @Override
-    public int[] sortByQuickSort(IntArrayEntity array) {
+    public int[] sortByQuickSort(IntArray array) {
         int[] result = array.toArray();
         quickSort(result, 0, result.length - 1);
         return result;

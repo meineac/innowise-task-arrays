@@ -12,11 +12,11 @@
 
 ```bash
 mvn clean test
-mvn exec:java -Dexec.mainClass="edu.example.arrays.application.ApplicationLauncher"
+mvn exec:java -Dexec.mainClass="com.innowise.array.application.ApplicationLauncher"
 ```
 
 Для второй команды добавьте плагин `exec-maven-plugin` в `pom.xml`, либо запустите
-класс `edu.example.arrays.application.ApplicationLauncher` из IDE.
+класс `array` из IDE.
 
 Входные данные находятся в `data/arrays.txt`. Некорректные строки пропускаются,
 ошибки фиксируются в журнале. Логи выводятся в консоль и `logs/application.log`.

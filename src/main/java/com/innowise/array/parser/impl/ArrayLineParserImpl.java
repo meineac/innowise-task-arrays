@@ -1,38 +1,39 @@
 package com.innowise.array.parser.impl;
 
+import com.innowise.array.exception.InvalidArrayException;
 import com.innowise.array.parser.ArrayLineParser;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.innowise.array.validation.ArrayLineValidator;
+import com.innowise.array.validation.impl.ArrayLineValidatorImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public final class ArrayLineParserImpl implements ArrayLineParser {
-    public int[] parse(String lineOfNumbers) {
-        if (lineOfNumbers == null || lineOfNumbers.isBlank()) {
-            throw new NumberFormatException("Input line is empty");
+    private static final Logger logger = LogManager.getLogger();
+    private static final String COMMA_DELIMITER_REGEX = "\\s*,\\s*";
+
+    @Override
+    public int[] parse(String line) {
+        ArrayLineValidator validator = new ArrayLineValidatorImpl();
+        boolean isLineValid = validator.isValid(line);
+        if (!isLineValid) {
+            logger.error("Cannot parse invalid line: '{}'", line);
+            throw new InvalidArrayException("Invalid line format: " + line);
         }
 
-        String normalized = lineOfNumbers.trim().replace('\u2013', '-').replace('\u2014', '-');
-        normalized = normalized.replaceAll("(?<=\\d)\\s+-\\s+(?=\\d)", " ");
-        normalized = normalized.replaceAll("(?<=\\d)-(?=\\d)", " ");
+        String trimmedLine = line.trim();
+        String[] numberTokens = trimmedLine.split(COMMA_DELIMITER_REGEX);
+        int[] numbers = new int[numberTokens.length];
 
-        String[] tokens = normalized.trim().split("[,;\\s]+");
-        List<Integer> parsed = new ArrayList<>();
-
-        for (String token : tokens) {
-            if (token.isEmpty()) {
-                continue;
+        try {
+            for (int i = 0; i < numberTokens.length; i++) {
+                numbers[i] = Integer.parseInt(numberTokens[i]);
             }
-            parsed.add(Integer.parseInt(token));
+        } catch (NumberFormatException exception) {
+            logger.error("Number out of int range in line: '{}'", line, exception);
+            throw new InvalidArrayException("Number out of int range in line: " + line, exception);
         }
 
-        if (parsed.isEmpty()) {
-            throw new NumberFormatException("No values found");
-        }
-
-        int[] values = new int[parsed.size()];
-        for (int index = 0; index < parsed.size(); index++) {
-            values[index] = parsed.get(index);
-        }
-        return values;
+        logger.info("Successfully parsed {} elements from line", numbers.length);
+        return numbers;
     }
 }

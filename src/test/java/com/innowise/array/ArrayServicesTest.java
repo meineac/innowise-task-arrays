@@ -8,7 +8,7 @@ import com.innowise.array.service.impl.ArrayAverageService;
 import com.innowise.array.service.impl.ArrayExtremumService;
 import com.innowise.array.service.impl.ArraySortingService;
 import com.innowise.array.service.impl.ArraySumService;
-import com.innowise.array.validation.IntArrayValidator;
+import com.innowise.array.validation.impl.ArrayLineValidatorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ArrayServicesTest {
     private ArrayLineParserImpl parser;
-    private IntArrayValidator validator;
+    private ArrayLineValidatorImpl validator;
     private ArrayExtremumService extremumService;
     private ArraySumService sumService;
     private ArrayAverageService averageService;
@@ -28,7 +28,7 @@ class ArrayServicesTest {
     @BeforeEach
     void setUp() {
         parser = new ArrayLineParserImpl();
-        validator = new IntArrayValidator(parser);
+        validator = new ArrayLineValidatorImpl();
         extremumService = new ArrayExtremumService();
         sumService = new ArraySumService();
         averageService = new ArrayAverageService();

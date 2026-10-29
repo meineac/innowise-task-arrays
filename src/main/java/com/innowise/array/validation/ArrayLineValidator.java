@@ -1,5 +1,5 @@
 package com.innowise.array.validation;
 
-public interface ArrayValidator {
+public interface ArrayLineValidator {
     boolean isValid(String line);
 }

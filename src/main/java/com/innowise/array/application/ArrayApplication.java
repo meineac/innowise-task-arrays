@@ -9,7 +9,7 @@ import com.innowise.array.service.AverageService;
 import com.innowise.array.service.ExtremumService;
 import com.innowise.array.service.SortingService;
 import com.innowise.array.service.SumService;
-import com.innowise.array.validation.ArrayValidator;
+import com.innowise.array.validation.ArrayLineValidator;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ public final class ArrayApplication {
     private static final Logger LOGGER = LogManager.getLogger(ArrayApplication.class);
 
     private final ArrayFileReader fileReader;
-    private final ArrayValidator validator;
+    private final ArrayLineValidator validator;
     private final ArrayLineParserImpl parser;
     private final ArrayFactory factory;
     private final ExtremumService extremumService;
@@ -30,7 +30,7 @@ public final class ArrayApplication {
 
     public ArrayApplication(
             ArrayFileReader fileReader,
-            ArrayValidator validator,
+            ArrayLineValidator validator,
             ArrayLineParserImpl parser,
             ArrayFactory factory,
             ExtremumService extremumService,

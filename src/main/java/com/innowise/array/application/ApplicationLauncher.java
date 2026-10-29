@@ -2,7 +2,7 @@ package com.innowise.array.application;
 
 import com.innowise.array.factory.IntArrayFactory;
 import com.innowise.array.parser.IntArrayParser;
-import com.innowise.array.reader.TextArrayFileReader;
+import com.innowise.array.reader.impl.ArrayFileReaderImpl;
 import com.innowise.array.service.impl.ArrayAverageService;
 import com.innowise.array.service.impl.ArrayExtremumService;
 import com.innowise.array.service.impl.ArraySortingService;
@@ -19,7 +19,7 @@ public final class ApplicationLauncher {
     public void launch() {
         IntArrayParser parser = new IntArrayParser();
         ArrayApplication application = new ArrayApplication(
-                new TextArrayFileReader(),
+                new ArrayFileReaderImpl(),
                 new IntArrayValidator(parser),
                 parser,
                 new IntArrayFactory(),

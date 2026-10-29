@@ -5,13 +5,11 @@ import com.innowise.array.exception.InvalidArrayException;
 import java.util.Arrays;
 
 public final class IntArray {
-    private static final String NULL_ARRAY_MESSAGE = "Array must not be null";
-
     private final int[] values;
 
     public IntArray(int[] values) {
         if (values == null) {
-            throw new InvalidArrayException(NULL_ARRAY_MESSAGE);
+            throw new InvalidArrayException("Array must not be null");
         }
         this.values = Arrays.copyOf(values, values.length);
     }

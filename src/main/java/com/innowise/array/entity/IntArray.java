@@ -8,9 +8,6 @@ public final class IntArray {
     private final int[] values;
 
     public IntArray(int[] values) {
-        if (values == null) {
-            throw new InvalidArrayException("Array must not be null");
-        }
         this.values = Arrays.copyOf(values, values.length);
     }
 

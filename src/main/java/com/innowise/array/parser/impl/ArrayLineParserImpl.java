@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public final class ArrayLineParserImpl implements ArrayLineParser {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
     private static final String COMMA_DELIMITER_REGEX = "\\s*,\\s*";
 
     @Override
@@ -16,11 +16,11 @@ public final class ArrayLineParserImpl implements ArrayLineParser {
         ArrayLineValidator validator = new ArrayLineValidatorImpl();
         boolean isLineValid = validator.isValid(line);
         if (!isLineValid) {
-            logger.error("Cannot parse invalid line: '{}'", line);
+            LOGGER.error("Cannot parse invalid line: '{}'", line);
             throw new InvalidArrayException("Invalid line format: " + line);
         }
 
-        String trimmedLine = line.trim();
+        String trimmedLine = line.strip();
         String[] numberTokens = trimmedLine.split(COMMA_DELIMITER_REGEX);
         int[] numbers = new int[numberTokens.length];
 
@@ -29,11 +29,11 @@ public final class ArrayLineParserImpl implements ArrayLineParser {
                 numbers[i] = Integer.parseInt(numberTokens[i]);
             }
         } catch (NumberFormatException exception) {
-            logger.error("Number out of int range in line: '{}'", line, exception);
+            LOGGER.error("Number out of int range in line: '{}'", line, exception);
             throw new InvalidArrayException("Number out of int range in line: " + line, exception);
         }
 
-        logger.info("Successfully parsed {} elements from line", numbers.length);
+        LOGGER.info("Successfully parsed {} elements from line", numbers.length);
         return numbers;
     }
 }

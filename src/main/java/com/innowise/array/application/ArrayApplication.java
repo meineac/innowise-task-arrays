@@ -56,7 +56,7 @@ public final class ArrayApplication {
             try {
                 int[] values = parser.parse(line);
                 IntArray array = factory.create(values);
-                LOGGER.info("Input array: {}", Arrays.toString(array.toArray()));
+                LOGGER.info("Input array: {}", Arrays.toString(array.getValues()));
                 LOGGER.info("Minimum: {}", extremumService.findMin(array));
                 LOGGER.info("Maximum: {}", extremumService.findMax(array));
                 LOGGER.info("Sum: {}", sumService.calculateSum(array));

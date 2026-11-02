@@ -6,7 +6,7 @@ import com.innowise.array.service.SortingService;
 public final class ArraySortingService implements SortingService {
     @Override
     public int[] sortByInsertion(IntArray array) {
-        int[] result = array.toArray();
+        int[] result = array.getValues();
         for (int index = 1; index < result.length; index++) {
             int current = result[index];
             int position = index - 1;
@@ -21,7 +21,7 @@ public final class ArraySortingService implements SortingService {
 
     @Override
     public int[] sortByQuickSort(IntArray array) {
-        int[] result = array.toArray();
+        int[] result = array.getValues();
         quickSort(result, 0, result.length - 1);
         return result;
     }

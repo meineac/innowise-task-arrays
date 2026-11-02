@@ -10,10 +10,10 @@ public final class ArrayExtremumService implements ExtremumService {
         if (array == null || array.size() == 0) {
             return OptionalInt.empty();
         }
-        int min = array.get(0);
+        int min = array.getValue(0);
         for (int index = 1; index < array.size(); index++) {
-            if (array.get(index) < min) {
-                min = array.get(index);
+            if (array.getValue(index) < min) {
+                min = array.getValue(index);
             }
         }
         return OptionalInt.of(min);
@@ -24,10 +24,10 @@ public final class ArrayExtremumService implements ExtremumService {
         if (array == null || array.size() == 0) {
             return OptionalInt.empty();
         }
-        int max = array.get(0);
+        int max = array.getValue(0);
         for (int index = 1; index < array.size(); index++) {
-            if (array.get(index) > max) {
-                max = array.get(index);
+            if (array.getValue(index) > max) {
+                max = array.getValue(index);
             }
         }
         return OptionalInt.of(max);

@@ -85,7 +85,7 @@ class ArrayServicesTest {
         int[] expected = {-1, 2, 2, 5, 8};
         assertArrayEquals(expected, sortingService.sortByInsertion(array));
         assertArrayEquals(expected, sortingService.sortByQuickSort(array));
-        assertArrayEquals(new int[] {5, -1, 8, 2, 2}, array.toArray());
+        assertArrayEquals(new int[] {5, -1, 8, 2, 2}, array.getValues());
     }
 
     @Test

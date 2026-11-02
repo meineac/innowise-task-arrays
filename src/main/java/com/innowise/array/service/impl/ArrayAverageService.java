@@ -12,7 +12,7 @@ public final class ArrayAverageService implements AverageService {
         }
         double sum = 0.0;
         for (int index = 0; index < array.size(); index++) {
-            sum += array.get(index);
+            sum += array.getValue(index);
         }
         return OptionalDouble.of(sum / array.size());
     }

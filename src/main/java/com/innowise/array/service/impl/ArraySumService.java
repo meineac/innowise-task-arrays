@@ -12,7 +12,7 @@ public final class ArraySumService implements SumService {
         }
         int sum = 0;
         for (int index = 0; index < array.size(); index++) {
-            sum = Math.addExact(sum, array.get(index));
+            sum = Math.addExact(sum, array.getValue(index));
         }
         return OptionalInt.of(sum);
     }

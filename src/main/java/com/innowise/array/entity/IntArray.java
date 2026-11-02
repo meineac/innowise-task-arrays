@@ -18,11 +18,14 @@ public final class IntArray {
         return values.length;
     }
 
-    public int get(int index) {
+    public int getValue(int index) {
+        if (index < 0 || index >= values.length) {
+            throw new InvalidArrayException("Array index out of bounds: " + index);
+        }
         return values[index];
     }
 
-    public int[] toArray() {
+    public int[] getValues() {
         return Arrays.copyOf(values, values.length);
     }
 
@@ -45,6 +48,6 @@ public final class IntArray {
     @Override
     public String toString() {
         String valuesText = Arrays.toString(values);
-        return "IntArrayEntity{values=" + valuesText + "}";
+        return "IntArray{values=" + valuesText + "}";
     }
 }

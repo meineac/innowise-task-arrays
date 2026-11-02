@@ -1,6 +1,6 @@
 package com.innowise.array.application;
 
-import com.innowise.array.factory.IntArrayFactory;
+import com.innowise.array.factory.impl.ArrayFactoryImpl;
 import com.innowise.array.parser.impl.ArrayLineParserImpl;
 import com.innowise.array.reader.impl.ArrayFileReaderImpl;
 import com.innowise.array.service.impl.ArrayAverageService;
@@ -22,7 +22,7 @@ public final class ApplicationLauncher {
                 new ArrayFileReaderImpl(),
                 new ArrayLineValidatorImpl(),
                 parser,
-                new IntArrayFactory(),
+                new ArrayFactoryImpl(),
                 new ArrayExtremumService(),
                 new ArraySumService(),
                 new ArrayAverageService(),

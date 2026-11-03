@@ -1,29 +1,25 @@
 package com.innowise.array.service.impl;
 
 import com.innowise.array.entity.IntArray;
+import com.innowise.array.exception.InvalidArrayException;
 import com.innowise.array.service.SortingService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public final class ArraySortingService implements SortingService {
+public class QuickSortingService implements SortingService {
+    private static final Logger LOGGER = LogManager.getLogger();
+
     @Override
-    public int[] sortByInsertion(IntArray array) {
-        int[] result = array.getValues();
-        for (int index = 1; index < result.length; index++) {
-            int current = result[index];
-            int position = index - 1;
-            while (position >= 0 && result[position] > current) {
-                result[position + 1] = result[position];
-                position--;
-            }
-            result[position + 1] = current;
+    public IntArray sort(IntArray array) {
+        if (array == null) {
+            LOGGER.error("Cannot sort by quick sort: array is null");
+            throw new InvalidArrayException("Array must not be null");
         }
-        return result;
-    }
-
-    @Override
-    public int[] sortByQuickSort(IntArray array) {
         int[] result = array.getValues();
         quickSort(result, 0, result.length - 1);
-        return result;
+        IntArray sortedArray = new IntArray(result);
+        LOGGER.info("Sorted array by insertion sort: {}", sortedArray);
+        return sortedArray;
     }
 
     private void quickSort(int[] values, int low, int high) {

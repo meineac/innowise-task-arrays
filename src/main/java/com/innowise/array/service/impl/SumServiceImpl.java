@@ -17,7 +17,7 @@ public final class SumServiceImpl implements SumService {
             return OptionalLong.empty();
         }
 
-        int sum = 0;
+        long sum = 0;
         for (int index = 0; index < array.size(); index++) {
             sum += array.getValue(index);
         }
